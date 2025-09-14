@@ -17,10 +17,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "client/dist/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
   }
 }
