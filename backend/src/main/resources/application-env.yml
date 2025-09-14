@@ -1,0 +1,88 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: ${SERVER_CONTEXT_PATH:/api}
+
+spring:
+  application:
+    name: careerbridgepro-backend
+  
+  datasource:
+    url: ${DB_URL:jdbc:h2:mem:testdb}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:}
+    driver-class-name: ${DB_DRIVER:org.h2.Driver}
+  
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:create-drop}
+    show-sql: ${JPA_SHOW_SQL:true}
+    properties:
+      hibernate:
+        dialect: ${HIBERNATE_DIALECT:org.hibernate.dialect.H2Dialect}
+        format_sql: ${HIBERNATE_FORMAT_SQL:true}
+  h2:
+    console:
+      enabled: ${H2_CONSOLE_ENABLED:true}
+  
+  servlet:
+    multipart:
+      max-file-size: ${MAX_FILE_SIZE:10MB}
+      max-request-size: ${MAX_REQUEST_SIZE:10MB}
+  
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-app-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+# File Upload Configuration
+file:
+  upload-dir: ${FILE_UPLOAD_DIR:./uploads/}
+  resume-dir: ${FILE_RESUME_DIR:./uploads/resumes/}
+  excel-dir: ${FILE_EXCEL_DIR:./uploads/excel/}
+
+# CORS Configuration
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+  allowed-methods: ${CORS_ALLOWED_METHODS:GET,POST,PUT,DELETE,OPTIONS}
+  allowed-headers: ${CORS_ALLOWED_HEADERS:*}
+  allow-credentials: ${CORS_ALLOW_CREDENTIALS:true}
+
+logging:
+  level:
+    root: ${LOG_LEVEL_ROOT:INFO}
+    com.careerbridgepro: ${LOG_LEVEL_APP:DEBUG}
+    org.springframework.security: ${LOG_LEVEL_SECURITY:DEBUG}
+
+# AI/ML Configuration
+ai:
+  matching:
+    enabled: ${AI_MATCHING_ENABLED:true}
+    algorithm: ${AI_MATCHING_ALGORITHM:advanced-ml}
+    confidence-threshold: ${AI_MATCHING_CONFIDENCE_THRESHOLD:0.8}
+  analytics:
+    enabled: ${AI_ANALYTICS_ENABLED:true}
+    real-time: ${AI_ANALYTICS_REAL_TIME:true}
+    prediction-interval: ${AI_ANALYTICS_PREDICTION_INTERVAL:24h}
+
+# Security Configuration
+security:
+  bcrypt:
+    strength: ${BCRYPT_STRENGTH:12}
+  session:
+    timeout: ${SESSION_TIMEOUT:1800}
+  login:
+    max-attempts: ${MAX_LOGIN_ATTEMPTS:5}
+    lockout-duration: ${LOCKOUT_DURATION:300}
