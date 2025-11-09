@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 services:
   # Frontend Service (React/Vite)
   # IMPORTANT: rootDir: client ensures package.json is found in the correct location
@@ -34,37 +33,3 @@ services:
       - key: PORT
         value: 8080
     healthCheckPath: /api/actuator/health
-
-=======
-services:
-  # Frontend Service (React/Vite)
-  # IMPORTANT: rootDir: client ensures package.json is found in the correct location
-  - type: web
-    name: zidioconnect-frontend
-    env: node
-    rootDir: client
-    buildCommand: npm install && npm run build
-    startCommand: npx vite preview --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: NODE_ENV
-        value: production
-    healthCheckPath: /
-
-  # Backend Service (Spring Boot) - Java Service
-  - type: web
-    name: zidioconnect-backend
-    env: java
-    rootDir: backend
-    buildCommand: mvn clean package -DskipTests
-    startCommand: java -jar target/careerbridgepro-backend-1.0.0.jar
-    plan: free
-    envVars:
-      - key: SPRING_PROFILES_ACTIVE
-        value: production
-      - key: JAVA_VERSION
-        value: 17
-      - key: PORT
-        value: 8080
-    healthCheckPath: /api/actuator/health
-
->>>>>>> 25febc01acfb1264d2090edc6af2b9711b1de272
