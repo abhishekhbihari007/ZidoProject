@@ -2,6 +2,16 @@
 
 This guide will help you deploy ZidioConnect to Render.
 
+## 🚨 Quick Fix: "package.json not found" Error
+
+If you see: `Couldn't find a package.json file in "/opt/render/project/src"`
+
+**Solution:** In Render Dashboard → Your Service → Settings → Build & Deploy:
+- Set **Root Directory** to `client`
+- Set **Build Command** to `npm install && npm run build`
+- Set **Start Command** to `npx vite preview --host 0.0.0.0 --port $PORT`
+- Click **Save Changes**
+
 ## Prerequisites
 
 1. A Render account (sign up at https://render.com)
