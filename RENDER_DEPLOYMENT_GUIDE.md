@@ -168,4 +168,3 @@ For Render-specific issues, check:
 For project-specific issues, check:
 - `backend/README.md`
 - `backend/ENVIRONMENT_SETUP_GUIDE.md`
-
