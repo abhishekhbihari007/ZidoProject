@@ -12,5 +12,15 @@ export default defineConfig({
   server: {
     port: 3000,
     host: true
+  },
+  preview: {
+    host: '0.0.0.0',
+    port: process.env.PORT || 3000,
+    strictPort: false,
+    allowedHosts: [
+      'zidoconnect.onrender.com',
+      'zidioconnect.onrender.com',
+      '.onrender.com'
+    ]
   }
 })
